@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Trigger</title>
+</head>
+<body>
+    <h1 id="secret-info">My Secret Info</h1>
+    <input id="input-filed" type="text" placeholder="Please write 'Delete' ">
+    <button id="delete-button" disabled>Delete</button>
+
+    <script>
+        // By pressing Delete button, you will delete all the secret information. 
+        document.getElementById('delete-button').addEventListener('click', function(){
+            document.getElementById('secret-info').style.display = 'none';
+        })
+
+        // By typing 'Delete' in the input field, you will enable the delete button.
+        document.getElementById('input-filed').addEventListener('keyup', function(event){
+            const text = event.target.value;
+            const deleteButton = document.getElementById('delete-button');
+            if(text === 'Delete'){
+                deleteButton.removeAttribute('disabled');
+            } else {
+                deleteButton.setAttribute('disabled', true);
+            }
+        })
+    </script>
+</body>
+</html>
